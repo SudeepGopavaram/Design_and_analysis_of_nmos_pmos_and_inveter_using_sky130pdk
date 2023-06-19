@@ -8,3 +8,26 @@ All this analysis will act as a case study to study on SPICE.
 After this we will be engaging with the designing of the layout of our inverter using MAGIC layout editor which will help in  exploring different layers available to the us and how we will be utilizing them followed by the LVS i.e comparing our layout with the schematic that we created.
 This will utilize the models that are present under the skywater 130nm pdk and various open source tools like Xschem, NGSPICE, MAGIC, Netgen, etc.
 I would try to keep the documentation as easily understandable by anyone who later tries to practise in the same way
+
+Content
+-
+1. Tools and PDK Setup
+   
+     1.1 Tools Setup
+   
+     1.2 PDK Setup
+   
+2. Analysis of MOSFET models
+   
+     2.1 General MOS analysis
+   
+     2.2 strong 0 and weak
+   
+     2.3 Weak 0 and strong 1
+
+3. CMOS Inverter Design and Analysis
+   3.1 Why CMOS Circuits
+   3.2 CMOS Inverter Analysis(Pre-Layout)
+   
+     
+     
