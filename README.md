@@ -115,9 +115,42 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
    Overall, the SkyWater130 PDK is an essential resource for IC designers seeking to leverage the capabilities of the SkyWater 130nm process technology. Its 
    comprehensive set of files, libraries, and guidelines streamline the design process and facilitate the creation of high-quality integrated circuits.
 
+   ## Analysis of NMOS and PMOS 
+   In this section we would start with our analysis of MOSFET for which 
+   we will be using the basic 1.8v model, there are also lot of models 
+   other than this which can be used depending on our purpose but for 
+   our analysis we will be going with this particular model only.
+
+   when you first startup with your xschem application it will look like this.
+
+   start by creating new schematic from the ```file``` option a new file will be created with a blank window infron of you.
+
+   we will start by instatiating the required component for our schematic use the shortcut ```shift + i``` for instantiating component a window will pop up on which you can see two libraries one is xschem device library where as other one is xschem_sky130 device library select the required components as mentioned below
+   
+   ```nfet_01v8.sym``` - from xschem_sky130 library<br>
+   ```vsource.sym``` - from xschem device library<br>
+   ```code_shown.sym``` - from xschem device library<br>
+   ```gnd.sym``` - from xschem device library<br>
+
+   with the help of our selected component we will make our desired schematic by connecting each component with the help of wire use the shortcut ```w``` our schematic should look like this.
+
+   after this we will be creating the netlist for our schematic by clicking on the ```netlist``` on the top right side but make sure that you have selected the "spice netlist" from the ```option menu``` and your show netlist window must also be enables shortcut to enable the netlist window is ```shift + a``` it should look like this.
+
+
+   next step in our analysis is simulating our design click on the ```simulate``` option rigth next to the netlist option a window should open like this is nothing but Ngspice terminal.
+
+   lets go through some terminal commands
+   ```display``` will show you all the variable between which you can plot the characterstics 
+   ```setplot``` will show all the plot that are availble for simulation
+```plot``` will help you choose the variable to plot
    
 
-   
+   here is our first plot for our NMOS when we DC sweep on Vgs source for different values of Vds:
+
+   our second plot when we DC sweep on Vds source for different value of Vgs
+
+
+   now we will calculate Gm transconductance parameter to find it we simply use the ```deriv()``` command this will help in taking derivative with respect to independent variable present at the current simulation. As we are aware of the definition of Gm i.e *dIds/dVds* so we will get the respectibe plot
    
      
      
