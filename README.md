@@ -55,7 +55,7 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
    
   ![image](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_and_pmos_using_sky130pdk/assets/57873021/9073cdd0-8e57-4177-9557-cc476fa6e9c2)
 
-  Ngspice is an open-source mixed-level/mixed-signal electronic circuit simulator widely used for circuit design, analysis, and verification. It allows users to 
+  [Ngspice](https://ngspice.sourceforge.io/) is an open-source mixed-level/mixed-signal electronic circuit simulator widely used for circuit design, analysis, and verification. It allows users to 
   model and simulate the behavior of electronic circuits using a variety of circuit elements, including resistors, capacitors, inductors, transistors, and more.
 
   Ngspice provides a command-line interface for interaction and scripting, making it flexible and suitable for both interactive usage and automated workflows. It 
@@ -63,11 +63,13 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
 
    Its versatility and accessibility make it a valuable asset in the field of electronic design automation.
 
+   > *You can refer to Ngspice manual [here](https://ngspice.sourceforge.io/docs.html)*
+
    **1.2 Magic**
    
    ![image](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_and_pmos_using_sky130pdk/assets/57873021/57ec58d6-9023-4d6a-ae0e-eb2db101f1db)
 
-   Magic is an open-source layout tool widely used in the field of digital integrated circuit design. It provides a powerful platform for creating and editing 
+   [Magic](http://opencircuitdesign.com/magic/) is an open-source layout tool widely used in the field of digital integrated circuit design. It provides a powerful platform for creating and editing 
    layouts of integrated circuits at various levels of abstraction, ranging from individual transistors to complete chip designs.
    
    Magic offers a range of features to enhance productivity and design efficiency. It includes a comprehensive set of drawing tools and alignment aids to facilitate 
@@ -76,11 +78,13 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
 
    Its feature-rich nature, extensibility, and community support make it an invaluable asset in the realm of digital integrated circuit design.
 
+   > *You can refer to Magic manual [here](http://opencircuitdesign.com/magic/magic_docs.html)*
+
    **1.3 Netgen**
    
    ![image](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_and_pmos_using_sky130pdk/assets/57873021/215efd81-b834-4845-a390-d8c8be694ed2)
 
-   Netgen is an open-source netlist comparison and verification tool used in the field of electronic design automation (EDA). It provides a powerful platform for 
+   [Netgen](http://opencircuitdesign.com/netgen/) is an open-source netlist comparison and verification tool used in the field of electronic design automation (EDA). It provides a powerful platform for 
    analyzing and comparing digital circuit netlists to ensure consistency and correctness across different stages of the design process.
 
    Netgen supports a wide range of netlist formats, including popular industry standards like SPICE and Verilog. It offers comprehensive netlist parsing and analysis 
@@ -88,11 +92,13 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
 
    Its ability to detect discrepancies and ensure design consistency contributes to the overall success and reliability of your circuit designs.
 
+   > *You can refer to Netgen manual [here](http://opencircuitdesign.com/netgen/tutorial/tutorial.html)*
+
    **1.4 Xschem**
    
    ![image](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_and_pmos_using_sky130pdk/assets/57873021/90b859e9-d0f5-4bca-bff5-cb439948ecec)
 
-   Xschem is an open-source electronic schematic capture and simulation tool widely used in the field of electronic design automation (EDA). It provides a versatile 
+   [Xschem](https://xschem.sourceforge.io/stefan/index.html) is an open-source electronic schematic capture and simulation tool widely used in the field of electronic design automation (EDA). It provides a versatile 
    platform for designing and simulating analog and digital circuits, facilitating the creation and analysis of complex circuit schematics.
 
    Xschem also supports advanced features such as model parameter extraction, sensitivity analysis, and waveform plotting, allowing you to fine-tune circuit designs 
@@ -101,11 +107,13 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
 
    Its user-friendly interface, extensive simulation capabilities, and community support make it an invaluable tool in the field of electronic design.
 
+   > *You can refer to xschem manual [here](https://xschem.sourceforge.io/stefan/xschem_man/xschem_man.html)*
+
    **1.5 Skywater Technology**
    
    ![image](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_and_pmos_using_sky130pdk/assets/57873021/f8f19c5c-1ded-40c1-a87b-82dc2e572bab)
 
-   The SkyWater Technology Foundry 130nm Process Design Kit (PDK) is a comprehensive collection of files, libraries, and documentation that enables the design and 
+   The [SkyWater](https://www.skywatertechnology.com/technology-and-design-enablement/) Technology Foundry 130nm Process Design Kit (PDK) is a comprehensive collection of files, libraries, and documentation that enables the design and 
    fabrication of integrated circuits (ICs) using the SkyWater 130nm process technology.
 
    The SkyWater130 PDK is typically utilized in conjunction with electronic design automation (EDA) tools, enabling designers to create and verify their IC designs 
@@ -115,8 +123,16 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
    Overall, the SkyWater130 PDK is an essential resource for IC designers seeking to leverage the capabilities of the SkyWater 130nm process technology. Its 
    comprehensive set of files, libraries, and guidelines streamline the design process and facilitate the creation of high-quality integrated circuits.
 
-   ## Analysis of NMOS and PMOS 
-   In this section we would start with our analysis of MOSFET for which 
+   > *You can refer to skywater130 manual [here](https://skywater-pdk.readthedocs.io/en/main/)*
+
+   ## Analysis of NMOS and PMOS
+  In this section we would start with our analysis which focuses on the characterization of NMOSFET (N-channel Metal-Oxide-Semiconductor Field-Effect Transistor). This section provides a comprehensive understanding of the NMOSFET and its current-voltage (I-V) characteristics.
+
+This section includes a characterization circuit for the NMOSFET, which allows for the measurement and analysis of its behavior. This circuit facilitates the determination of key parameters such as threshold voltage, transconductance, and drain current.
+
+Additionally, we will explores the I-V characteristics of the NMOSFET. By varying the gate-to-source voltage (Vgs) and drain-to-source voltage (Vds), the current flowing through the NMOSFET can be observed and analyzed. This characterization helps in understanding the device's conduction behavior, including the saturation region, linear region, and pinch-off region.
+
+   In this sec 
    we will be using the basic 1.8v model, there are also lot of models 
    other than this which can be used depending on our purpose but for 
    our analysis we will be going with this particular model only.
@@ -151,6 +167,18 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
 
 
    now we will calculate Gm transconductance parameter to find it we simply use the ```deriv()``` command this will help in taking derivative with respect to independent variable present at the current simulation. As we are aware of the definition of Gm i.e *dIds/dVds* so we will get the respectibe plot
+
+   *You can go through this [Ngspice documentation](https://ngspice.sourceforge.io/docs/ngspice-manual.pdf) to get an idea of terminal commands and their syntax.*
+
+   Now as we have now all the required important plots with us for NMOS we can get the same for PMOS by following the same procedure.
+
+   one point to note here is that you can notice that when we measure the current for both the NMOS and PMOS at the same voltage we will be getting different voltage, now to get that same for both the MOSFET at same voltage the condition is *W/L of PMOS = x * W/L OF NMOS*
+
+CODE_SHOWN BLOCK
+
+
+## Strong 0 and Weak 1
+
    
      
      
