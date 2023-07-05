@@ -126,6 +126,45 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
    > *You can refer to skywater130 manual [here](https://skywater-pdk.readthedocs.io/en/main/)*
 
    ## Analysis of NMOS and PMOS
+
+   *******************************
+In this section, we will conduct an analysis of the NMOS and PMOS devices. For our analysis, we will utilize the basic 1.8V model available in the SkyWater130 PDK. While there are various other models available for different purposes, we will focus on this particular model for our analysis.
+
+To begin, open the Xschem application. Upon startup, the application window will be displayed which will look like this.
+
+![Xschem](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/645240df-2a3d-4054-8c1a-14cfee174751)
+
+Create a new schematic by selecting the "File" option and choosing to create a new file. A blank window will appear where we can build our schematic.
+
+![Xschem_newfile](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/fe8e4259-d104-4bb4-8ed9-d9cf85d4f89e)
+
+To instantiate the required components, use the shortcut "Shift + I" to open the component instantiation window. Here, you will find two libraries: "xschem device library" and "xschem_sky130 device library". Select the following components:
+
+nfet_01v8.sym from the xschem_sky130 library.
+vsource.sym from the xschem device library.
+code_shown.sym from the xschem device library.
+gnd.sym from the xschem device library.
+
+Connect the components using wires to create the desired schematic. Use the "W" shortcut to draw wires between the components. Your schematic should resemble the desired configuration.
+
+![Xschem_Nmos](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/7ee51c5b-57cf-4d26-8b87-5d6064f4e922)
+
+Once the schematic is complete, generate the netlist by clicking on the "Netlist" option located in the top right corner. Ensure that the "Spice netlist" option is selected in the "Options" menu, and make sure the "Show netlist" window is enabled (shortcut: "Shift + A"). The netlist window will display the generated netlist, it should look like this if you have not made any errors while making the schematic and if there are any error in the schematic that will be highlighted in the separate error window from where you can debug those.
+
+![Xschem_netlist_nmos](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/6d9689cd-69dc-4f82-8af4-953f34d3c9cc)
+
+The next step in our analysis is to simulate our design. Click on the "Simulate" option next to the netlist option. This will open the Ngspice terminal, where we can run the simulation which will look like this.
+
+![Ngspice](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/c5af1e51-ef28-48c2-9f43-5e1709678f83)
+
+Here are some useful commands for the Ngspice terminal:
+
+display: Shows all the variables available for plotting characteristics.
+setplot: Displays all the plots available for simulation.
+plot: Helps choose the variables to plot for analysis.
+By utilizing these commands, we can analyze and plot the characteristics of our NMOS and PMOS devices.
+
+   ************************************************
   In this section we would start with our analysis which focuses on the characterization of NMOSFET (N-channel Metal-Oxide-Semiconductor Field-Effect Transistor). This section provides a comprehensive understanding of the NMOSFET and its current-voltage (I-V) characteristics.
 
 This section includes a characterization circuit for the NMOSFET, which allows for the measurement and analysis of its behavior. This circuit facilitates the determination of key parameters such as threshold voltage, transconductance, and drain current.
