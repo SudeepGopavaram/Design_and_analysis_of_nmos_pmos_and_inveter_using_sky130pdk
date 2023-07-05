@@ -149,6 +149,8 @@ Connect the components using wires to create the desired schematic. Use the "W" 
 
 ![Xschem_Nmos](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/7ee51c5b-57cf-4d26-8b87-5d6064f4e922)
 
+This circuit facilitates the determination of key parameters such as threshold voltage, transconductance, and drain current.
+
 Once the schematic is complete, generate the netlist by clicking on the "Netlist" option located in the top right corner. Ensure that the "Spice netlist" option is selected in the "Options" menu, and make sure the "Show netlist" window is enabled (shortcut: "Shift + A"). The netlist window will display the generated netlist, it should look like this if you have not made any errors while making the schematic and if there are any error in the schematic that will be highlighted in the separate error window from where you can debug those.
 
 ![Xschem_netlist_nmos](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/6d9689cd-69dc-4f82-8af4-953f34d3c9cc)
@@ -159,10 +161,18 @@ The next step in our analysis is to simulate our design. Click on the "Simulate"
 
 Here are some useful commands for the Ngspice terminal:
 
-display: Shows all the variables available for plotting characteristics.
-setplot: Displays all the plots available for simulation.
-plot: Helps choose the variables to plot for analysis.
+```display```: Shows all the variables available for plotting characteristics<br>
+```setplot```: Displays all the plots available for simulation<br>
+```plot```   : Helps choose the variables to plot for analysis<br>
+
 By utilizing these commands, we can analyze and plot the characteristics of our NMOS and PMOS devices.
+
+after giving the ```display``` command we can see the variables available to us for which we can plot the characterstics for our case we will be plotting the vds#branch which will plot the the I-V characteristics of the NMOSFET. By varying the gate-to-source voltage (Vgs) and drain-to-source voltage (Vds), the current flowing through the NMOSFET can be observed and analyzed.
+
+![i-v_nmos_vds_sweeping](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/f4ee3d7d-9e20-4f69-9306-378f393d65b5)
+
+
+
 
    ************************************************
   In this section we would start with our analysis which focuses on the characterization of NMOSFET (N-channel Metal-Oxide-Semiconductor Field-Effect Transistor). This section provides a comprehensive understanding of the NMOSFET and its current-voltage (I-V) characteristics.
