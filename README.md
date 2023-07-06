@@ -169,12 +169,52 @@ By utilizing these commands, we can analyze and plot the characteristics of our 
 
 after giving the ```display``` command we can see the variables available to us for which we can plot the characterstics for our case we will be plotting the vds#branch which will plot the the I-V characteristics of the NMOSFET. By varying the gate-to-source voltage (Vgs) and drain-to-source voltage (Vds), the current flowing through the NMOSFET can be observed and analyzed.
 
-![i-v_nmos_vds_sweeping](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/f4ee3d7d-9e20-4f69-9306-378f393d65b5)
+when I sweep Vgs source for different values of Vds, I get the below plot:
+
+![i-v_nmos_vgs_sweeping](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/f4ee3d7d-9e20-4f69-9306-378f393d65b5)
+
+as we can see now the plot got generated and which we will be getting after DC sweeping Vgs for different value of Vds from the above plot we can see that our Vth i.e treshold voltage is lying in between the 600mV to 700mV.
+
+Similarly, when I sweep Vds source for different values of Vgs, I get the below plot:
+
+![i-v_nmos_vds_sweeping](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/0a018595-9f45-40ab-a907-139eee058725)
+
+above two plots looks completey as we expected if you are familiar with the nmos characterstic curve we can see the linear and saturation part of the curve distinctively.
+
+now we will calculate Gm transconductance plot independently for the both of our I-V characteristics to find it we simply use the ```deriv()``` command this will help in taking derivative with respect to independent variable present at the current simulation. As we are aware of the definition of Gm i.e *dIds/dVds* so we will get the respective plot
+
+![transconducatance_nmos](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/a590d91a-7891-4730-b747-8f7ef387924a)
+
+![transconducatance_nmos](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/bffb9fbf-0fe0-4c8b-98b6-4a854366925f)
+
+ 
+   *You can go through this [Ngspice documentation](https://ngspice.sourceforge.io/docs/ngspice-manual.pdf) to get an idea of terminal commands and their syntax.*
+
+same process can be repeated for the PMOS analysis we will be getting our result like below when we do so...
+
+PMOS schematic 
+
+![schematic_pmos](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/c488f0c3-1ddb-439f-a2b9-5191b97c185d)
+
+I-V characteristics of the PMOSFET
+when I sweep Vgs source for different values of Vds, I get the below plot:
+
+![i-v_nmos_vgs_sweeping](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/128e2a78-93fa-4e1e-8e2e-51bf6c05015b)
+
+Similarly, when I sweep Vds source for different values of Vgs, I get the below plot:
+
+![i-v_nmos_vds_sweeping](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/1ba2e9f3-0d7a-41da-8bf4-3574254df3ed)
+
+
+
+
 
 
 
 
    ************************************************
+code_shown block plays an important role in process this block consist of our 
+   
   In this section we would start with our analysis which focuses on the characterization of NMOSFET (N-channel Metal-Oxide-Semiconductor Field-Effect Transistor). This section provides a comprehensive understanding of the NMOSFET and its current-voltage (I-V) characteristics.
 
 This section includes a characterization circuit for the NMOSFET, which allows for the measurement and analysis of its behavior. This circuit facilitates the determination of key parameters such as threshold voltage, transconductance, and drain current.
