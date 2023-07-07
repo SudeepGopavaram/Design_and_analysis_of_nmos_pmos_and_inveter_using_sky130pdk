@@ -26,15 +26,15 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
 
  **1. About Tools**
     
-     1.1 Ngspice
+    1.1 Ngspice
     
-     1.2 Magic
+    1.2 Magic
     
-     1.3 Netgen
+    1.3 Netgen
     
-     1.4 xschem
+    1.4 xschem
     
-     1.5 Skywater Technology
+    1.5 Skywater Technology
    
  3. Analysis of MOSFET models
    
@@ -257,14 +257,42 @@ I think now you can see the clear difference that our threshold voltage (Vth) fo
 
 
    ************************************************
+ **Strong 0 and Weak 1**
 
-.
+ So far we have been doing the dc analysis now let's try our hand on transient analysis of MOSFET we will be analysing why NMOS passes strong 0 where as PMOS 
+ passes weak 0.
 
-   one point to note here is that you can notice that when we measure the current for both the NMOS and PMOS at the same voltage we will be getting different voltage, now to get that same for both the MOSFET at same voltage the condition is *W/L of PMOS = x * W/L OF NMOS*
+ our schematic for transient analysis must look like this
+
+ ![Nmos_trans](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/86f8c890-bc35-4926-9f41-5f7a39643cbd)
+
+ I have provided the gate voltage as pulse supply you can refer to ngspice manual on how provide the pulse input with its arguments like rise time, fall time, 
+ initial and final voltages, period, width of pulse and number of pulses.
+
+ after performing my simulation we will be getting our curve like this, I have plotted both the vin and vout voltages in a single plot to make our analysis easy
+
+ ![Nmos_trans_curve](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/43ec50c9-af6b-4b94-baa0-e448af3e8247)
+
+ now observe the input pulse plot when it is low i.e our NMOS will be in cutt-off region so the capacitor will be getting charged completely through the vdd 
+ supply upto 1.8v which can be seen from output vout plot, similarly consider the input pulse when it is high which is 1.8v making our MOS move into linear 
+ region as a result it will act as a voltage controlled resistor as a result it will now form a voltage divider now this time the vout will be take the value of 
+ resistance across the NMOS.
+
+ From here we can conclude that NMOS passes strong 0 but not strong 1
+ 
+ similar analysis can be made for PMOS to prove that it is a strong 1 below are the images of the schematic and the respective plot
+
+ ![Pmos_trans](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/47be750d-0cc4-4181-b743-f10353ffd1ac)
+
+ ![Pmos_trans_curve](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/eca5ce24-e006-4dbd-8f09-ce76cc5dea2a)
 
 
 
-## Strong 0 and Weak 1
+
+
+
+
+   
 
    
      
