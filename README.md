@@ -134,28 +134,32 @@ To begin, open the Xschem application. Upon startup, the application window will
 
 ![Xschem](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/645240df-2a3d-4054-8c1a-14cfee174751)
 
-Create a new schematic by selecting the "File" option and choosing to create a new file. A blank window will appear where we can build our schematic.
+Create a new schematic by selecting the ```File``` option and choosing to create a new file. A blank window will appear where we can build our schematic.
 
 ![Xschem_newfile](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/fe8e4259-d104-4bb4-8ed9-d9cf85d4f89e)
 
-To instantiate the required components, use the shortcut "Shift + I" to open the component instantiation window. Here, you will find two libraries: "xschem device library" and "xschem_sky130 device library". Select the following components:
+To instantiate the required components, use the shortcut ```Shift + I``` to open the component instantiation window. Here, you will find two libraries: "xschem device library" and "xschem_sky130 device library". Select the following components:
 
-nfet_01v8.sym from the xschem_sky130 library.
-vsource.sym from the xschem device library.
-code_shown.sym from the xschem device library.
-gnd.sym from the xschem device library.
+```nfet_01v8.sym``` from the xschem_sky130 library<br>
+```vsource.sym``` from the xschem device library<br>
+```code_shown.sym``` from the xschem device library<br>
+```gnd.sym``` from the xschem device library<br>
 
-Connect the components using wires to create the desired schematic. Use the "W" shortcut to draw wires between the components. Your schematic should resemble the desired configuration.
+```code_shown.sym``` block in Xschem is a versatile tool for adding custom code snippets, comments, or annotations within a schematic to convey additional information or highlight specific aspects of the design.
+
+Connect the components using wires to create the desired schematic. Use the ```W``` shortcut to draw wires between the components. Your schematic should resemble the desired configuration.
 
 ![Xschem_Nmos](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/7ee51c5b-57cf-4d26-8b87-5d6064f4e922)
 
 This circuit facilitates the determination of key parameters such as threshold voltage, transconductance, and drain current.
 
-Once the schematic is complete, generate the netlist by clicking on the "Netlist" option located in the top right corner. Ensure that the "Spice netlist" option is selected in the "Options" menu, and make sure the "Show netlist" window is enabled (shortcut: "Shift + A"). The netlist window will display the generated netlist, it should look like this if you have not made any errors while making the schematic and if there are any error in the schematic that will be highlighted in the separate error window from where you can debug those.
+Once the schematic is complete, generate the netlist by clicking on the "Netlist" option located in the top right corner. Ensure that the ```Spice netlist``` option is selected in the ```Options``` menu, and make sure the "Show netlist" window is enabled (shortcut: ```Shift + A```). The netlist window will display the generated netlist, it should look like this if you have not made any errors while making the schematic and if there are any error in the schematic that will be highlighted in the separate error window from where you can debug those.
 
 ![Xschem_netlist_nmos](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/6d9689cd-69dc-4f82-8af4-953f34d3c9cc)
 
-The next step in our analysis is to simulate our design. Click on the "Simulate" option next to the netlist option. This will open the Ngspice terminal, where we can run the simulation which will look like this.
+A netlist is nothing but description of the circuit that we want to analyze which is described to the ngspice by a set of elements defining the circuit topology and element instance all of these lines are assembled in an input file to be read by ngspice.
+
+The next step in our analysis is to simulate our design. Click on the ```Simulate``` option next to the netlist option. This will open the Ngspice terminal, where we can run the simulation which will look like this.
 
 ![Ngspice](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/c5af1e51-ef28-48c2-9f43-5e1709678f83)
 
@@ -194,6 +198,8 @@ same process can be repeated for the PMOS analysis we will be getting our result
 
 PMOS schematic 
 
+I have changed my PMOS width "W" to "4" reason for that will be given later......
+
 ![schematic_pmos](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/c488f0c3-1ddb-439f-a2b9-5191b97c185d)
 
 I-V characteristics of the PMOSFET
@@ -206,64 +212,56 @@ Similarly, when I sweep Vds source for different values of Vgs, I get the below 
 ![i-v_nmos_vds_sweeping](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/1ba2e9f3-0d7a-41da-8bf4-3574254df3ed)
 
 
+considering the Ids-Vgs plot for both the NMOS and PMOS lets calculate the value of current at Vgs value of 1.8v for this we will be using the ```meas``` command you can read about this in the ngspice manual which I tagged above.
+
+![meas_command_pmos_nmos](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/33bf9ead-8efc-4e6a-8f58-634855f86297)
+
+we can see that current for both the MOS is almost same, remember during PMOS anlysis I changed my PMOS width to "4" the reason for almost same current is this, so the thing is "W" and "L" being the width and lenght of the MOS, ratio of these two "W/L" is known as aspect ratio so after a little bit of experimentation I have found that for the same current to flow in both PMOS and NMOS the aspect ratio of PMOS should be approximately 4 times the aspect ratio of NMOS i.e
+**(W/L)<sub>p</sub> = 4 * (W/L)<sub>n**, I will be discussing about it more later when we will be analyzing our inverter.
+
+**BODY EFFECT**
+
+why not experiment a little more with these PMOS and NMOS let's dive into something called body effect this time we will try to give the body voltage for both the MOS
+
+we will be giving a negative voltage (let -2.5v) to the body of NMOS (*why?*), we will be using the same sweeping voltages that we used in our above circuit, your circuit should look like this for analysing body effect
+
+for NMOS
+![nmos_dc_body_schematic](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/5d6a35a1-fd6e-4edc-a257-96a269c43599)
+
+now I hope you might be little bit familiar with the interface our next step will be saving the netlist and simulating the result and ploting the characterstic curve 
+
+![nmos_body_dc_curve](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/5b218202-8eb8-4195-a1a6-b47ca0cd8996)
 
 
+we will be giving a positive voltage (let 2.5v) to the body of the PMOS (*why?*), circuit will be looking like this
 
+![pmos_dc_body_schematic](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/2e26b9fc-a74c-401b-90c4-7458b6bf8373)
 
+characterstic curve for this will be
+
+![pmos_dc_body_curve](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/80a7a6ab-4995-4dce-ab49-19f4dbd5883f)
+
+can you notice any change in these above two plots? why not do one thing lets try to keep the body effect plot and non-body effect plot side by side for both MOS and try to notice the differences
+
+Plots for NMOS
+
+![B_NB_NMOS_DC](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/3613334f-97b5-48c6-bec9-d196126d73b1)
+
+Plots for PMOS
+
+![B_NB_PMOS_DC](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/6b3dd717-2f43-4d3f-9b2b-76a32704f2d5)
+
+left side plot in above two images are plots with body effect in consideration where as right side plots are without body effect
+
+I think now you can see the clear difference that our threshold voltage (Vth) for both the MOS has changed significantly (increased) which is as per our expectation.
 
 
    ************************************************
-code_shown block plays an important role in process this block consist of our 
-   
-  In this section we would start with our analysis which focuses on the characterization of NMOSFET (N-channel Metal-Oxide-Semiconductor Field-Effect Transistor). This section provides a comprehensive understanding of the NMOSFET and its current-voltage (I-V) characteristics.
 
-This section includes a characterization circuit for the NMOSFET, which allows for the measurement and analysis of its behavior. This circuit facilitates the determination of key parameters such as threshold voltage, transconductance, and drain current.
-
-Additionally, we will explores the I-V characteristics of the NMOSFET. By varying the gate-to-source voltage (Vgs) and drain-to-source voltage (Vds), the current flowing through the NMOSFET can be observed and analyzed. This characterization helps in understanding the device's conduction behavior, including the saturation region, linear region, and pinch-off region.
-
-   In this sec 
-   we will be using the basic 1.8v model, there are also lot of models 
-   other than this which can be used depending on our purpose but for 
-   our analysis we will be going with this particular model only.
-
-   when you first startup with your xschem application it will look like this.
-
-   start by creating new schematic from the ```file``` option a new file will be created with a blank window infron of you.
-
-   we will start by instatiating the required component for our schematic use the shortcut ```shift + i``` for instantiating component a window will pop up on which you can see two libraries one is xschem device library where as other one is xschem_sky130 device library select the required components as mentioned below
-   
-   ```nfet_01v8.sym``` - from xschem_sky130 library<br>
-   ```vsource.sym``` - from xschem device library<br>
-   ```code_shown.sym``` - from xschem device library<br>
-   ```gnd.sym``` - from xschem device library<br>
-
-   with the help of our selected component we will make our desired schematic by connecting each component with the help of wire use the shortcut ```w``` our schematic should look like this.
-
-   after this we will be creating the netlist for our schematic by clicking on the ```netlist``` on the top right side but make sure that you have selected the "spice netlist" from the ```option menu``` and your show netlist window must also be enables shortcut to enable the netlist window is ```shift + a``` it should look like this.
-
-
-   next step in our analysis is simulating our design click on the ```simulate``` option rigth next to the netlist option a window should open like this is nothing but Ngspice terminal.
-
-   lets go through some terminal commands
-   ```display``` will show you all the variable between which you can plot the characterstics 
-   ```setplot``` will show all the plot that are availble for simulation
-```plot``` will help you choose the variable to plot
-   
-
-   here is our first plot for our NMOS when we DC sweep on Vgs source for different values of Vds:
-
-   our second plot when we DC sweep on Vds source for different value of Vgs
-
-
-   now we will calculate Gm transconductance parameter to find it we simply use the ```deriv()``` command this will help in taking derivative with respect to independent variable present at the current simulation. As we are aware of the definition of Gm i.e *dIds/dVds* so we will get the respectibe plot
-
-   *You can go through this [Ngspice documentation](https://ngspice.sourceforge.io/docs/ngspice-manual.pdf) to get an idea of terminal commands and their syntax.*
-
-   Now as we have now all the required important plots with us for NMOS we can get the same for PMOS by following the same procedure.
+.
 
    one point to note here is that you can notice that when we measure the current for both the NMOS and PMOS at the same voltage we will be getting different voltage, now to get that same for both the MOSFET at same voltage the condition is *W/L of PMOS = x * W/L OF NMOS*
 
-CODE_SHOWN BLOCK
 
 
 ## Strong 0 and Weak 1
