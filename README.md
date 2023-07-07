@@ -25,16 +25,6 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
 # Content
 
  **1. About Tools**
-    
-    1.1 Ngspice
-    
-    1.2 Magic
-    
-    1.3 Netgen
-    
-    1.4 xschem
-    
-    1.5 Skywater Technology
    
  3. Analysis of MOSFET models
    
