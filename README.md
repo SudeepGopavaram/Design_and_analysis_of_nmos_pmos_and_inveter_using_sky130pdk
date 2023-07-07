@@ -28,7 +28,7 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
 
  1.1 Ngspice
     1.2 Magic
-    <a href = "magic">Magic</a>
+    <a href = "#magic">Magic</a>
     
  1.1 Ngspice
     
@@ -69,8 +69,9 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
 
    > *You can refer to Ngspice manual [here](https://ngspice.sourceforge.io/docs.html)*
 
-   **1.2 Magic**
-   <section id = "magic">
+  <section id = "magic" nane = "magic" class = "anchor" >
+   
+  ## **1.2 Magic**
    ![image](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_and_pmos_using_sky130pdk/assets/57873021/57ec58d6-9023-4d6a-ae0e-eb2db101f1db)
 
    [Magic](http://opencircuitdesign.com/magic/) is an open-source layout tool widely used in the field of digital integrated circuit design. It provides a powerful platform for creating and editing 
@@ -83,6 +84,7 @@ Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS
    Its feature-rich nature, extensibility, and community support make it an invaluable asset in the realm of digital integrated circuit design.
 
    > *You can refer to Magic manual [here](http://opencircuitdesign.com/magic/magic_docs.html)*
+
 </section>
 
    **1.3 Netgen**
