@@ -20,7 +20,6 @@ To ensure the accuracy and consistency of our layout, we will perform a Layout v
 
 Throughout the project, we will leverage the models and resources provided by the SkyWater130 PDK, as well as open-source tools such as Xschem, NGSPICE, MAGIC, and Netgen. The project documentation will be structured in a manner that is easily understandable for anyone looking to follow the same methodology.
 
-Join us in this exciting journey of designing and analyzing NMOS, PMOS, and CMOS circuits using the SkyWater130 PDK. Let's explore the capabilities of the PDK and gain valuable insights into the world of electronic design.
 
 # Content
 
