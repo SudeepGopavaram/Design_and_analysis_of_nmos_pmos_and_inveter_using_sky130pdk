@@ -293,6 +293,11 @@ I think now you can see the clear difference that our threshold voltage (Vth) fo
  ![Pmos_trans_curve](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/eca5ce24-e006-4dbd-8f09-ce76cc5dea2a)
 
 
+ # CMOS inverter design and analysis
+
+In a CMOS circuit, the PMOS transistors are used to implement logic functions when the input is at a low voltage level (logic 0), while the NMOS transistors are used for logic functions when the input is at a high voltage level (logic 1). This complementary arrangement allows for efficient power consumption since the current flows only when the transistors switch states.
+
+
 
 
 
