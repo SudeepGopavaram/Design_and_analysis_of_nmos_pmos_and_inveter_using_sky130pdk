@@ -295,16 +295,15 @@ I think now you can see the clear difference that our threshold voltage (Vth) fo
 
  # CMOS inverter design and analysis
 
-In a CMOS circuit, the PMOS transistors are used to implement logic functions when the input is at a low voltage level (logic 0), while the NMOS transistors are used for logic functions when the input is at a high voltage level (logic 1). This complementary arrangement allows for efficient power consumption since the current flows only when the transistors switch states.
+In a CMOS circuit, PMOS transistors are used to implement logic functions when the input is at a low voltage level (logic 0), while NMOS transistors are used for logic functions when the input is at a high voltage level (logic 1). This arrangement allows for efficient power consumption since current flows only when the transistors switch states.
 
+The basic building block of a CMOS circuit is the CMOS inverter, which consists of a PMOS transistor and an NMOS transistor connected in series. The input is applied to both transistors' gates, and the output is taken from their common connection, known as the output node.
 
+When the input is at logic 0, the PMOS transistor turns on, creating a low resistance path between the supply voltage (VDD) and the output node, pulling the output to logic 1. At the same time, the NMOS transistor turns off, ensuring no current flows from the output node to ground. That is why PMOS is used in pull up network.
 
+On the other hand, when the input is at logic 1, the PMOS transistor turns off, while the NMOS transistor turns on. This allows the output node to be connected to ground, pulling the output to logic 0. The NMOS transistor acts as a low resistance path to discharge any charge on the output node. That is why NMOS is used in pull down network.
 
+CMOS circuits can be cascaded to implement more complex digital functions, such as logic gates (AND, OR, XOR, etc.), flip-flops, and arithmetic units. CMOS technology offers advantages such as low power consumption and high noise immunity, making it the dominant technology for digital circuit design. 
 
-
-
-   
-
-   
-     
-     
+**DC anaylsis**
+Following is the schematic of the CMOS inverter
