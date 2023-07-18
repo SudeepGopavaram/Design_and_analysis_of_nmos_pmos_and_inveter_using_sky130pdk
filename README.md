@@ -307,3 +307,49 @@ CMOS circuits can be cascaded to implement more complex digital functions, such 
 
 **DC anaylsis**
 Following is the schematic of the CMOS inverter
+
+![Inverter_schem](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/24466fe9-273f-4485-a507-368a0047fd15)
+
+one thing to note here is I have kept the apect ratio of PMOS 4 times the aspect ratio of NMOS according to our above analysis, now we will create the symbol for our inverter just press ```a``` after saving the schematic our symbol file will be made which you will be able to find in your files section it will be with extension of *.sym*  which will look like this
+
+![inverter_symbol](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/3d6479b3-1e53-4f21-ac40-ece2fb8eb370)
+
+obviously this doesn't look like inverter symbol we can just modify this symbol according to us
+
+![Updated_inv_sym](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/36525fb3-c16c-498a-a65c-61782de55ff3)
+
+now we will create testbench for our inverter for that create a new file and now we can insert the symbol which we created above from our own library by ```shift + i``` and our testbench schematic must look like this
+
+![inverter_tb_loaded](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/e56f69ba-4aa7-4bcb-80d1-d162f4dfc728)
+
+we will be doing our analysis first on unloaded inverter and will include the load during our inverter noise analysis 
+
+![inverter_tb_unloaded](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/fbfbc553-e9b8-4a79-8136-551e7f3f0d48)
+
+ now using the DC analysis we will be plotting the VTC - Voltage Tranfer Curve which means we will be sweeping the input voltage and will be plotting the output voltage, below are the two VTC curves the first one is when both the PMOS and NMOS as equal aspect ratio of 1, and the second plot with PMOS aspect ratio 4 times the NMOS aspect ratio.
+
+ ![VTC_eq_ASR](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/45af2861-1b69-49d9-bc87-5f08048faec6)
+
+ ![VTC_uneq_ASR](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/b34ea460-5f17-4c97-97ff-368e5887c55a)
+
+ VTC curve of inverter consist of five region in each region the PMOS and NMOS work in different modes as shown below 
+
+ ![image](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/9c84ae44-e65b-4990-8b91-7f8c0189d66c)
+
+  some terminology/parameters 
+
+**V<sub>OH</sub>** - Maximum output voltage which occour when input is low (V<sub>in</sub> = 1)<br>
+**V<sub>OL</sub>** - Minimum output voltage which occour when input is high (V<sub>in</sub> = 0)<br>
+
+**V<sub>IH</sub>** - Input hight voltage such that V<sub>in</sub> > V<sub>IH</sub> = Logic 1<br>
+**V<sub>IL</sub>** - Input low voltage such that V<sub>in</sub> < V<sub>IH</sub> = Logic 0<br>
+above two parameters will decide the noise margin of our inverter 
+
+**V<sub>M</sub>** - Point in VTC curve where both PMOS and NMOS operates in saturation and V<sub>in</sub> = V<sub>out</sub>
+
+$' V<sub>M</sub> = V<sub>DD</sub> - |V<sub>tp</sub>| + V<sub>tn</sub>(sqrt{\beta<sub>n</sub>/\beta<sub>p</sub>})/ 1 + sqrt{\beta<sub>n</sub>/\beta<sub>p</sub>} '$
+
+
+
+
+
