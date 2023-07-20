@@ -349,6 +349,11 @@ above two parameters will decide the noise margin of our inverter
 
 $' V<sub>M</sub> = V<sub>DD</sub> - |V<sub>tp</sub>| + V<sub>tn</sub>(sqrt{\beta<sub>n</sub>/\beta<sub>p</sub>})/ 1 + sqrt{\beta<sub>n</sub>/\beta<sub>p</sub>} '$
 
+Ideally V<sub>M</sub> shoudl be at a value of V<sub>DD</sub>/2 for the noise margin to become maximum
+We can see from our second VTC curve when I kept the sizing of PMOS 4 times the sizing of NMOS
+
+
+
 
 
 
