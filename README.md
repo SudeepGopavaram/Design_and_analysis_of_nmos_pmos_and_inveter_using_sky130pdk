@@ -349,8 +349,56 @@ above two parameters will decide the noise margin of our inverter
 
 $' V<sub>M</sub> = V<sub>DD</sub> - |V<sub>tp</sub>| + V<sub>tn</sub>(sqrt{\beta<sub>n</sub>/\beta<sub>p</sub>})/ 1 + sqrt{\beta<sub>n</sub>/\beta<sub>p</sub>} '$
 
-Ideally V<sub>M</sub> shoudl be at a value of V<sub>DD</sub>/2 for the noise margin to become maximum
-We can see from our second VTC curve when I kept the sizing of PMOS 4 times the sizing of NMOS
+Ideally V<sub>M</sub> shoudl be at a value of V<sub>DD</sub>/2 for the noise margin to become maximum , when both the PMOS and NMOS had equal size then the V<sub>M</sub> value came around 0.8v
+
+![Vm for equal sizing](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/d8b424c6-3d38-4f45-97e3-3d337d1475d6)
+
+but when I made the sizing of pmos 4 times the NMOS the I got the  V<sub>M</sub> equals to 0.9v which is exactly equals to V<sub>DD</sub>/2
+
+![Vm for unequal sizing](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/17229104-f1f0-4d6f-9f32-2406925044de)
+
+VTC curve can ve divided into three part according to the gain of the inverter where one of the region will be giving us the gain of 1 and the other two will be giving the gain of 0 which will help us in deciding the limits of our noise margin the region where we will be getting the gain as 1 we need to avoid giving our input voltage in that specific range because that will lead to the amplification of noise which we dont want
+
+![gain](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/a22391a5-1d8b-4ac2-b72f-828d8199cdf7)
+
+we are getting gain in negative lets try to plot the absolute value and also exactly plot the region where we will be getting gain as one
+
+![ideal gain](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/f433896d-7456-4bbf-b20c-ea51aa5791d8)
+
+following commands were used to print the above plot
+
+![image](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/021690df-f12b-46bc-ac12-8b09aca28467)
+
+with the help of the ```.meas``` command I tried to get the values of input voltage from where the gain = 1 region starts and end which we have defined as **V<sub>IL</sub>** and **V<sub>IH</sub>** plotted both gain and vout in a single plot. we have used the keyword ```cross``` in our ngspice terminal to determine whenever the gain and VTC plot intersect during the first and last time.
+
+![image](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/d517fd33-d884-42f0-b502-588089c20651)
+
+**V<sub>IL</sub>** = 0.7v
+**V<sub>IH</sub>** = 1.0v
+
+now lets try to find out the noise margin value which will help to determine the values of voltage for which our inverter will be working noise free.
+NML(Noise Margin for Low) - VIL - VOL = 0.7
+NMH(Noise Margin for HIGH) - VOH - VIH = 0.8 
+
+above analysis was DC analysis lets try transient analysis by giving the pulse input to our inverter to analyse propogation delay associated with our inverter
+
+![Transient](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/4d72c878-6ae6-478c-ba70-dd3624c7c8d1)
+
+I have specified the required rise time, fall time, pulse width and no. pulse according to me, we can see there is some propogation delay associated with the output.
+
+propogation delay depends upon the input so basically during rise time the time it take to 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
