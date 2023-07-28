@@ -385,24 +385,44 @@ above analysis was DC analysis lets try transient analysis by giving the pulse i
 ![Transient](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/4d72c878-6ae6-478c-ba70-dd3624c7c8d1)
 
 I have specified the required rise time, fall time, pulse width and no. pulse according to me, we can see there is some propogation delay associated with the output.
+**pulse (0 1.8 0 500ps 500ps 4ns 12ns)**
 
-propogation delay depends upon the input so basically during rise time the time it take to 
+![Propogation delay](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/6573a6b1-b9ae-484e-bd1c-775bdc86a936)
+
+if we make our input faster then propogation delay must descrease lets check
+**pulse (0 1.8 0 .1ns .1ns 4ns 12ns)**
+
+![Propogation delay with faster input](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/068a0a2f-34a8-426a-b4ee-e894ae1c2445)
+
+lets have a look at the rise time as propogation delay depends upon the input so basically during rise time the time it take to rise from 10 percent to 90percent, whereas the fall time from 90 percent to 10 percent
+
+![Rise time](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/3cc193a4-5bd0-4c54-acb7-dbecaea3ef4b)
+
+our aim is to reduce this rise time lets increase the power but it will also increase the power consumption as there is Vdd^2 in the power formula 
+
+![Tr with increased power](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/25bff89a-0fc9-4967-ae22-f57d4f1a2b70)
 
 
+second method will be to increase the sizing of PMOS and NMOS because this is unloaded analysis and there should not be much difference in rise time because the internal capacitance get compensated by the increase in size of MOS
+
+![Inverter_tb_wo_load](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/022af2c0-8687-40a9-9d94-eb1b2640f4eb)
 
 
+![Tr with increased sizing](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/ecc11e09-5c18-4ff4-a3f9-2bb4f743547f)
+
+with load and increased sizing of MOS
+
+![inverter_tb_with_load](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/5b633468-4336-4462-9e5a-077b9c3be24d)
 
 
+![image](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/e3f3da2b-d276-41d1-8286-5e322fcfe1fa)
+
+### Power Analysis 
 
 
+![image](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/a97cd77b-9425-461e-9624-06fb1e06ae6a)
 
-
-
-
-
-
-
-
+![image](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/532409d8-5f77-48a2-93cc-b7ce7af1ba5d)
 
 
 
