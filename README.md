@@ -24,34 +24,32 @@ Throughout the project, we will leverage the models and resources provided by th
 # Content
 
  **1. About Tools**
+ 
+1.1 Ngspice
 
- 1.1 Ngspice
-    1.2 Magic
-    <a href = "#magic">Magic</a>
-    
- 1.1 Ngspice
-    
-     1.2 
-    
-     1.3 Netgen
-    
-     1.4 xschem
-    
-     1.5 Skywater Technology
-   
- 3. Analysis of MOSFET models
-   
-     2.1 General MOS analysis
-   
-     2.2 strong 0 and weak
-   
-     2.3 Weak 0 and strong 1
+1.2 Magic
 
- 4. CMOS Inverter Design and Analysis
-     3.1 Why CMOS Circuits
-    
-     3.2 CMOS Inverter Analysis(Pre-Layout)
+1.3 Netgen
 
+1.4 Xschem
+
+1.5 Skywater Technology
+
+ **2. Analysis of MOSFET models**
+
+ 2.1 General Mos Analysis
+
+ 2.2 Strong 0 and Weak 1
+
+ 2.3 Weak 0 and Strong 1
+   
+
+ **3. CMOS Inverter Design and Analysis**
+
+ 3.1 Why CMOS Circuits
+
+ 3.2 CMOS Inverter Analysis
+ 
   # 1. About Tools
   
    **1.1 Ngspice**
@@ -347,7 +345,7 @@ above two parameters will decide the noise margin of our inverter
 
 **V<sub>M</sub>** - Point in VTC curve where both PMOS and NMOS operates in saturation and V<sub>in</sub> = V<sub>out</sub>
 
-$' V<sub>M</sub> = V<sub>DD</sub> - |V<sub>tp</sub>| + V<sub>tn</sub>(sqrt{\beta<sub>n</sub>/\beta<sub>p</sub>})/ 1 + sqrt{\beta<sub>n</sub>/\beta<sub>p</sub>} '$
+$' V<sub>M</sub> = V<sub>DD</sub> - |V<sub>tp</sub>| + V<sub>tn</sub>(sqrt{\beta<sub>n</sub>/\beta<sub>p</sub>})/ 1 + sqrt{\beta<sub>n</sub> / \beta<sub>p</sub>} '$
 
 Ideally V<sub>M</sub> shoudl be at a value of V<sub>DD</sub>/2 for the noise margin to become maximum , when both the PMOS and NMOS had equal size then the V<sub>M</sub> value came around 0.8v
 
@@ -398,7 +396,7 @@ lets have a look at the rise time as propogation delay depends upon the input so
 
 ![Rise time](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/3cc193a4-5bd0-4c54-acb7-dbecaea3ef4b)
 
-our aim is to reduce this rise time lets increase the power but it will also increase the power consumption as there is Vdd^2 in the power formula 
+our aim is to reduce this rise time lets increase the power but it will also increase the power consumption as there is Vdd<sup>2</sup> in the power formula 
 
 ![Tr with increased power](https://github.com/SudeepGopavaram/Design_and_analysis_of_nmos_pmos_and_inveter_using_sky130pdk/assets/57873021/25bff89a-0fc9-4967-ae22-f57d4f1a2b70)
 
